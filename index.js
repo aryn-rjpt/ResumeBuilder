@@ -10,6 +10,7 @@ let template = Handlebars.compile(document.getElementById("candidates-list-templ
 
 if (candidatesData == null) {
     localStorage.setItem("candidatesData", JSON.stringify(data))
+    candidatesData = data;
     list.innerHTML = template(data);
 }
 else {
