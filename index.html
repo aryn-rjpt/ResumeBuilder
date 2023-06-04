@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+
+    <!-- My style sheet -->
+    <link rel="stylesheet" href="style.css" class="css">
+
+    <!-- Font: Pacifico -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- My JS -->
+    <script type="module" src="index.js"></script>
+
+    <!-- Handlesbars -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <div id="main-container">
+        <h1>Resume Builder</h1>
+        <div class="sub-container">
+            <div class="candidates">
+                <h3>Choose a candidate: </h3>
+                <ul id="candidates-list">
+
+                </ul>
+            </div>
+
+            <div id="btns">
+                <button id="resumeBtn">Get Resume</button>
+                <button id="candidateBtn">Add Candidate</button>
+            </div>
+        </div>
+
+
+        <div class="sub-container" style="margin-left: 5vw">
+
+
+            <div id="download-resume" class="unactive">
+                <div id="details">
+
+                </div>
+                
+                <p>{Sorry, functionalities below this point are in development}</p>
+                <h3>Select a template</h3>
+                <button>Download Pdf</button>
+            </div>
+
+
+            <div id="candidate-form" class="unactive">
+                <h3>New Candidate Registration</h3>
+                <form action="#">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input id="name" type="text" name="name">
+                    </div>
+                    <div>
+                        <label for="age">Age:</label>
+                        <input id="age" type="number" name="age">
+                    </div>
+                    <div>
+                        <label for="qualification">Qualification:</label>
+                        <input id="qualification" type="text" name="qualification">
+                    </div>
+                    <button id="newCandySub">Submit</button>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <!-- candidates-list template -->
+    <script id="candidates-list-template" type="text/x-handlebars-template">
+
+        {{#each candidates}}
+        <li>
+            <input type="radio" id="candy{{id}}" name="chosen-one" value="{{id}}">
+            <label for="{{name}}">{{name}}</label>
+        </li>
+        {{/each}}
+    </script>
+
+    <!-- Template to display details of the required person -->
+    <script id="requested-content" type="text/x-handlebars-template">
+        <pre>
+
+            The name is {{name}}
+            whose age is {{age}}
+            and qualification is {{qualification}}
+        
+        </pre>
+    </script>
+
+
+
+</body>
+
+</html>

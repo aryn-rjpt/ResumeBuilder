@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pacifico', cursive;
+}
+
+li{
+    list-style: none;
+}
+
+#main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+#btns{
+    margin: 1vw;
+}
+
+.active{
+    display: block;
+}
+
+.unactive{
+    display: none;
+}
+
+#candidate-form h3{
+    margin: 2vw 0vw;
+}
+
+
+#candidate-form form div{
+    margin-bottom: 2vw;
+}
+
+input{
+    text-align: center;
+}

@@ -1,0 +1,28 @@
+{
+    "candidates": [
+        {
+            "id": 1,
+            "name": "Aryan",
+            "age": 25,
+            "qualification": "M.tech"
+        },
+        {
+            "id": 2,
+            "name": "Ash Ketchum",
+            "age": 25,
+            "qualification": "M.tech"
+        },
+        {
+            "id": 3,
+            "name": "Monkey D Luffy",
+            "age": 25,
+            "qualification": "M.tech"
+        },
+        {
+            "id": 4,
+            "name": "Benjamin Tennison",
+            "age": 25,
+            "qualification": "M.tech"
+        }
+    ]
+}
