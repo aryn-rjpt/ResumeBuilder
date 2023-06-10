@@ -17,20 +17,20 @@ else {
     list.innerHTML = template(candidatesData)
 }
 
-
 $(document).ready(function () {
 
+    let requestedPerson = "";
 
+    // Click Event management
     $("#resumeBtn").on("click", () => {
         let requestedId = $("input[type='radio'][name='chosen-one']:checked").val();
-        let requestedPerson = "";
         for (let i = 0; i<candidatesData.candidates.length; i++){
             if (candidatesData.candidates[i].id==requestedId){
                 requestedPerson = candidatesData.candidates[i];
                 break;
             }
         }
-        let detailsTemplate = Handlebars.compile($("#requested-content").html())
+        let detailsTemplate = Handlebars.compile($("#requested-content").html());
         $('#details').html(detailsTemplate(requestedPerson));
         $('#download-resume').removeClass("unactive").addClass('active').siblings().removeClass('active').addClass("unactive");
     })
@@ -40,13 +40,24 @@ $(document).ready(function () {
     })
 
     $("#newCandySub").on("click", () => {
-        let name = $("#name").val();
-        let age = Number($("#age").val());
-        let qualification = $("#qualification").val();
-        
-        candidatesData.candidates.push({"id": candidatesData.candidates.length+1, "name": name, "age": age, "qualification": qualification});
+      
+
+
+        let formData = Array.from(document.querySelectorAll("#candidate-form input")).reduce((acc, input)=> ({...acc, [input.id]:input.value}), {});
+
+
+        candidatesData.candidates.push({"id": candidatesData.candidates.length+1, ...formData});
         localStorage.setItem("candidatesData", JSON.stringify(candidatesData))
-        console.log(candidatesData)
+
+
+    })
+
+
+    $("input[name='templateBtns']").on("click", function(){
+        $('.resume-template').css("display","flex");
+        let chosenTemplale = this.value;
+        let compiledChosenTemplale = Handlebars.compile($("#"+chosenTemplale+"template").html());
+        $('#finalResume').html(compiledChosenTemplale(requestedPerson))
     })
 
 

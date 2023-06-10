@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css" class="css">
 
     <!-- Font: Pacifico -->
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Pacifico&display=swap" rel="stylesheet">
 
     <!-- My JS -->
     <script type="module" src="index.js"></script>
@@ -30,10 +30,10 @@
     <div id="main-container">
         <h1>Resume Builder</h1>
         <div class="sub-container">
+            <h3>Choose a candidate: </h3>
             <div class="candidates">
-                <h3>Choose a candidate: </h3>
                 <ul id="candidates-list">
-
+                    <!-- To be fulfilled using handlebars -->
                 </ul>
             </div>
 
@@ -44,17 +44,35 @@
         </div>
 
 
-        <div class="sub-container" style="margin-left: 5vw">
+        <div class="sub-container">
 
 
             <div id="download-resume" class="unactive">
+                <h3>Details</h3>
                 <div id="details">
-
+                    <!-- To be fulfilled using handlebars -->
                 </div>
-                
-                <p>{Sorry, functionalities below this point are in development}</p>
-                <h3>Select a template</h3>
-                <button>Download Pdf</button>
+
+                <h3>Choose a template</h3>
+                <div class="resume">
+                    <ul>
+                        <li>
+                            <input type="radio" id="resumeTemp1" name="templateBtns" value="temp1">
+                            <label for="resumeTemp1">Template 1</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="resumeTemp2" name="templateBtns" value="temp2">
+                            <label for="resumeTemp2">Template 2</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="resumeTemp3" name="templateBtns" value="temp3">
+                            <label for="resumeTemp3">Template 3</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="resume-template" id="finalResume">
+                    <!-- To be fulfilled using handlebars -->
+                </div>
             </div>
 
 
@@ -73,7 +91,28 @@
                         <label for="qualification">Qualification:</label>
                         <input id="qualification" type="text" name="qualification">
                     </div>
+                    <div>
+                        <label for="designation">Designation to apply for:</label>
+                        <input id="designation" type="text" name="designation">
+                    </div>
+                    <div>
+                        <label for="address">Address:</label>
+                        <input id="address" type="text" name="address">
+                    </div>
+                    <div>
+                        <label for="phone">Ph. No.:</label>
+                        <input id="phone" type="tel" name="phone">
+                    </div>
+                    <div>
+                        <label for="email">Email:</label>
+                        <input id="email" type="email" name="email">
+                    </div>
+                    <div>
+                        <label for="linkedin">LinkedIn (url):</label>
+                        <input id="linkedin" type="url" name="linkedin">
+                    </div>
                     <button id="newCandySub">Submit</button>
+
                 </form>
             </div>
 
@@ -89,7 +128,7 @@
         {{#each candidates}}
         <li>
             <input type="radio" id="candy{{id}}" name="chosen-one" value="{{id}}">
-            <label for="{{name}}">{{name}}</label>
+            <label for="candy{{id}}">{{name}}</label>
         </li>
         {{/each}}
     </script>
@@ -97,15 +136,74 @@
     <!-- Template to display details of the required person -->
     <script id="requested-content" type="text/x-handlebars-template">
         <pre>
-
             The name is {{name}}
             whose age is {{age}}
             and qualification is {{qualification}}
-        
+            and other details ka yha likhna ka mann nhi h mera...
         </pre>
     </script>
 
-
+    <!-- Handlebar Template for the 1st resume template-->
+    <script id="temp1template" type="text/x-handlebars-template">
+        <div class="left-box">
+            <div class="section">
+                <div class="section-heading">Personal Info</div>
+                <div class="section-stuff">
+                    <p>{{address}}</p>
+                    <p>{{age}}</p>
+                
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-heading">Skills</div>
+                <div class="section-stuff">Vo toh h hi nhi bilkul bhi</div>
+            </div>
+            
+            <div class="section">
+                <div class="section-heading">Languages</div>
+                <div class="section-stuff"><p>French</p>
+                <p>German</p>
+                <p>Japanese</p></div>
+            </div>
+            
+            <div class="section">
+                <div class="section-heading">Contact</div>
+                <div class="section-stuff">
+                    <p>{{phone}}</p>
+                    <p>{{email}}</p>
+                    <p>{{linkedin}}</p>
+                </div>
+            </div>
+            
+        </div>
+        <div class="right-box">
+            <div class="heading-name">{{name}}</div>
+            <div class="template-designation">{{designation}}</div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt tempore sequi, molestiae, asperiores iste hic pariatur voluptate minima, labore totam eos rerum aspernatur harum deserunt fuga accusamus doloribus vitae omnis.
+            </p>
+            <div class="section">
+                <div class="section-heading">Objective</div>
+                <div class="section-stuff">
+                    Apun Duniya BADLEGA!
+                </div>
+                <div class="section-heading">Experience</div>
+                <div class="section-stuff">
+                    Vo bhi aa jaayga
+                </div>
+                <div class="section-heading">Education</div>
+                <div class="section-stuff">
+                    6th Fail
+                </div>
+                <div class="section-heading">Certifications</div>
+                <div class="section-stuff">
+                    Unhe toh sardiyon mein aag laga di thi!...
+                </div>
+            </div>
+            
+        </div>
+    </script>
 
 </body>
 

@@ -1,28 +1,48 @@
 {
     "candidates": [
         {
+            "address": "Unknown",
+            "email": "a@g.com",
+            "phone": "987",
+            "linkedin": "https://abc.com",
             "id": 1,
             "name": "Aryan",
-            "age": 25,
-            "qualification": "M.tech"
+            "age": "25",
+            "qualification": "M.tech",
+            "designation": "Software Enginner"
         },
         {
+            "address": "Unknown",
+            "email": "a@g.com",
+            "phone": "987",
+            "linkedin": "https://abc.com",
             "id": 2,
             "name": "Ash Ketchum",
-            "age": 25,
-            "qualification": "M.tech"
+            "age": "25",
+            "qualification": "M.tech",
+            "designation": "Cloud Enginner"
         },
         {
+            "address": "Unknown",
+            "email": "a@g.com",
+            "phone": "987",
+            "linkedin": "https://abc.com",
             "id": 3,
             "name": "Monkey D Luffy",
-            "age": 25,
-            "qualification": "M.tech"
+            "age": "25",
+            "qualification": "M.tech",
+            "designation": "Ethical Hacker"
         },
         {
+            "address": "Unknown",
+            "email": "a@g.com",
+            "phone": "987",
+            "linkedin": "https://abc.com",
             "id": 4,
             "name": "Benjamin Tennison",
-            "age": 25,
-            "qualification": "M.tech"
+            "age": "25",
+            "qualification": "M.tech",
+            "designation": "Alpha Tester"
         }
     ]
 }
