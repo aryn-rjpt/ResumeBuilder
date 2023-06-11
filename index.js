@@ -40,16 +40,9 @@ $(document).ready(function () {
     })
 
     $("#newCandySub").on("click", () => {
-      
-
-
         let formData = Array.from(document.querySelectorAll("#candidate-form input")).reduce((acc, input)=> ({...acc, [input.id]:input.value}), {});
-
-
         candidatesData.candidates.push({"id": candidatesData.candidates.length+1, ...formData});
         localStorage.setItem("candidatesData", JSON.stringify(candidatesData))
-
-
     })
 
 
