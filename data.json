@@ -1,20 +1,20 @@
 {
     "candidates": [
         {
-            "address": "Unknown",
-            "email": "a@g.com",
-            "phone": "987",
-            "linkedin": "https://abc.com",
+            "address": "Cyrus Planet",
+            "email": "greymatter@gmail.com",
+            "phone": "9877654321076543210",
+            "linkedin": "https://linkedin.com/greymatter",
             "id": 1,
-            "name": "Aryan",
-            "age": "25",
-            "qualification": "M.tech",
-            "designation": "Software Enginner"
+            "name": "Grey Matter",
+            "age": "18",
+            "qualification": "Alien Tech",
+            "designation": "Mechanical Engineer"
         },
         {
             "address": "Unknown",
             "email": "a@g.com",
-            "phone": "987",
+            "phone": "98776543210",
             "linkedin": "https://abc.com",
             "id": 2,
             "name": "Ash Ketchum",
@@ -25,7 +25,7 @@
         {
             "address": "Unknown",
             "email": "a@g.com",
-            "phone": "987",
+            "phone": "98776543210",
             "linkedin": "https://abc.com",
             "id": 3,
             "name": "Monkey D Luffy",
@@ -36,7 +36,7 @@
         {
             "address": "Unknown",
             "email": "a@g.com",
-            "phone": "987",
+            "phone": "98776543210",
             "linkedin": "https://abc.com",
             "id": 4,
             "name": "Benjamin Tennison",

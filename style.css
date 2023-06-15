@@ -61,18 +61,54 @@ button:hover{
     display: none;
 }
 
-#candidate-form h3 {
+.my-warning{
+    display: none;
+    color: red;
+}
+
+.candidate-form h3 {
     margin: 2vw 0vw;
 }
 
 
-#candidate-form form div {
-    margin-bottom: 2vw;
+.singleVal{
+    display: inline-block;
+    margin: 0 0 1rem 1rem;
 }
 
 input {
     text-align: center;
 }
+
+.multipleVals{
+    margin: 0 0 1rem 1rem;
+}
+
+.multipleInput{
+    width: 26rem;
+    height: 2rem;
+    margin: 0.2rem 0.5rem;
+}
+
+.skills-input {
+    height: 1.5rem;
+    width: 13rem;
+}
+
+.addBtn, .skillAddBtn{
+    border-radius: 5px;
+    background-color: #F44336;
+    height: 32px;
+    margin: 0 0.5rem;
+    color: white;
+}
+
+.addBtn:hover, .skillAddBtn:hover{
+    cursor: pointer;
+    background-color: #ffdfdd;
+    color: #501b1b;
+}
+
 
 
 .resume ul {
@@ -136,7 +172,7 @@ input {
 
 .right-box .section-heading {
     font-weight: bolder;
-    color: #3737fd;
+    color: #000073;
     padding: 0.5rem 1rem;
     font-size: 1.3rem;
 }
