@@ -122,16 +122,6 @@ $(document).ready(function () {
         let compiledChosenTemplale = Handlebars.compile($("#"+chosenTemplale+"template").html());
         $('#finalResume').html(compiledChosenTemplale(requestedPerson))
 
-        // html2canvas(document.getElementById("finalResume")).then(function(canvas){
-        //     document.getElementById("download-resume").appendChild(canvas);
-        // })
-
     })
 
-
-
-
-
-
 });
-
