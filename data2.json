@@ -1,0 +1,48 @@
+{
+    "candidates": [
+        {
+            "address": "Cyrus Planet",
+            "email": "greymatter@gmail.com",
+            "phone": "9877654321076543210",
+            "linkedin": "https://linkedin.com/greymatter",
+            "id": 1,
+            "name": "Grey Matter (Please Select Anush)",
+            "age": "18",
+            "qualification": "Alien Tech",
+            "designation": "Mechanical Engineer"
+        },
+        {
+            "address": "Unknown",
+            "email": "a@g.com",
+            "phone": "98776543210",
+            "linkedin": "https://abc.com",
+            "id": 2,
+            "name": "Ash Ketchum (Please Select Anush)",
+            "age": "25",
+            "qualification": "M.tech",
+            "designation": "Cloud Enginner"
+        },
+        {
+            "address": "Unknown",
+            "email": "a@g.com",
+            "phone": "98776543210",
+            "linkedin": "https://abc.com",
+            "id": 3,
+            "name": "Monkey D Luffy (Please Select Anush)",
+            "age": "25",
+            "qualification": "M.tech",
+            "designation": "Ethical Hacker"
+        },
+        {
+            "address": "Unknown",
+            "email": "a@g.com",
+            "phone": "98776543210",
+            "linkedin": "https://abc.com",
+            "id": 4,
+            "name": "Benjamin Tennison (Please Select Anush)",
+            "age": "25",
+            "qualification": "M.tech",
+            "designation": "Alpha Tester"
+        }
+    ]
+}

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Builder</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.png">
 
     <!-- My style sheet -->
     <link rel="stylesheet" href="style.css" class="css">
@@ -23,6 +24,9 @@
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <!-- html2canvas -->
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
 
 
 </head>
@@ -50,10 +54,10 @@
 
 
             <div id="download-resume" class="unactive">
-                <h3>Details</h3>
+                <!-- <h3>Details</h3>
                 <div id="details">
-                    <!-- To be fulfilled using handlebars -->
-                </div>
+                     To be fulfilled using handlebars 
+                </div> -->
 
                 <h3>Choose a template</h3>
                 <div class="resume">
@@ -113,7 +117,14 @@
                         <label for="linkedin">LinkedIn (url):</label>
                         <input id="linkedin" type="url" name="linkedin">
                     </div>
-
+                    <div class="singleVal">
+                        <label for="intro">Short Introduction</label>
+                        <input id="intro" type="text" name="intro" style="width: 23rem; height: 4rem;">
+                    </div>
+                    <div class="singleVal">
+                        <label for="objective">Objective</label>
+                        <input id="objective" type="text" name="objective"  style="width: 23rem; height: 4rem;">
+                    </div>
                     <div class="multipleVals" id="skills">
                         <label for="skill0">Skills:</label>
                         <div><input type="text" id="skill0" class="multipleInput skills-input" name="skill0"></div>
@@ -145,14 +156,14 @@
     </script>
 
     <!-- Template to display details of the required person -->
-    <script id="requested-content" type="text/x-handlebars-template">
+    <!-- <script id="requested-content" type="text/x-handlebars-template">
         <pre>
             The name is {{name}}
             whose age is {{age}}
             and qualification is {{qualification}}
             and other details ka yha likhna ka mann nhi h mera...
         </pre>
-    </script>
+    </script> -->
 
     <!-- Template for a candidate form multiple value section -->
     <script id="candy-form-template" type="text/x-handlebars-template">
@@ -177,7 +188,11 @@
             
             <div class="section">
                 <div class="section-heading">Skills</div>
-                <div class="section-stuff">Vo toh h hi nhi bilkul bhi</div>
+                <div class="section-stuff">
+                    {{#each skills}}
+                        <div>{{this}}</div>
+                    {{/each}}
+                </div>
             </div>
             
             <div class="section">
@@ -201,24 +216,30 @@
             <div class="heading-name">{{name}}</div>
             <div class="template-designation">{{designation}}</div>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt tempore sequi, molestiae, asperiores iste hic pariatur voluptate minima, labore totam eos rerum aspernatur harum deserunt fuga accusamus doloribus vitae omnis.
+                {{intro}}
             </p>
             <div class="section">
                 <div class="section-heading">Objective</div>
                 <div class="section-stuff">
-                    Apun Duniya BADLEGA!
+                    {{objective}}
                 </div>
                 <div class="section-heading">Experience</div>
                 <div class="section-stuff">
-                    Vo bhi aa jaayga
+                    {{#each experiences}}
+                        <div>{{this}}</div>
+                    {{/each}}
                 </div>
                 <div class="section-heading">Education</div>
                 <div class="section-stuff">
-                    6th Fail
+                    {{#each education}}
+                        <div>{{this}}</div>
+                    {{/each}}
                 </div>
-                <div class="section-heading">Certifications</div>
+                <div class="section-heading">Achievements</div>
                 <div class="section-stuff">
-                    Unhe toh sardiyon mein aag laga di thi!...
+                    {{#each achievements}}
+                        <div>{{this}}</div>
+                    {{/each}}
                 </div>
             </div>
             
@@ -248,9 +269,11 @@
                             Work Experience
                         </div>
                         <div class="section-stuff">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br><br>
-                            Odio hic velit molestias magnam suscipit odit nesciunt <br><br>
-                            accusantium cum fuga dolores, ducimus commodi vel voluptates alias repellendus vero est! Sunt, facere.
+                            <ul>
+                                {{#each experiences}}
+                                <li>{{this}}</li>
+                                {{/each}}
+                            </ul>
                         </div>
                     </div>
                     <div class="section">
@@ -258,9 +281,11 @@
                             Education
                         </div>
                         <div class="section-stuff">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br><br>
-                            Odio hic velit molestias magnam suscipit odit nesciunt <br><br>
-                            accusantium cum fuga dolores, ducimus commodi vel voluptates alias repellendus vero est! Sunt, facere.
+                            <ul>
+                                {{#each education}}
+                                <li>{{this}}</li>
+                                {{/each}}
+                            </ul>
                         </div>
                     </div>
                     <div class="section">
@@ -283,10 +308,9 @@
                         </div>
                         <div class="section-stuff">
                             <ul>
-                                <li>Skill 1</li>
-                                <li>Skill 2</li>
-                                <li>Skill 3</li>
-                                <li>Skill 4</li>
+                                {{#each skills}}
+                                <li>{{this}}</li>
+                                {{/each}}
                             </ul>
                         </div>
                     </div>
@@ -296,10 +320,9 @@
                         </div>
                         <div class="section-stuff">
                             <ul>
-                                <li>Achievement 1: Lorem, ipsum dolor.</li>
-                                <li>Achievement 2: Lorem, ipsum dolor.</li>
-                                <li>Achievement 3: Lorem, ipsum dolor.</li>
-                                <li>Achievement 4: Lorem, ipsum dolor.</li>
+                                {{#each achievements}}
+                                <li>{{this}}</li>
+                                {{/each}}
                             </ul>
                         </div>
                     </div>
@@ -309,10 +332,10 @@
                         </div>
                         <div class="section-stuff">
                             <ul>
-                                <li>Certification 1: Lorem, ipsum dolor.</li>
-                                <li>Certification 2: Lorem, ipsum dolor.</li>
-                                <li>Certification 3: Lorem, ipsum dolor.</li>
-                                <li>Certification 4: Lorem, ipsum dolor.</li>
+                                <li>Certification 1</li>
+                                <li>Certification 2</li>
+                                <li>Certification 3</li>
+                                <li>Certification 4</li>
                             </ul>
                         </div>
                     </div>
@@ -348,7 +371,7 @@
                         Objective
                     </div>
                     <div class="section-stuff">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid animi earum eaque neque aut illum eveniet expedita iure, alias sapiente.
+                        {{objective}}
                     </div>
                 </div>
                 <div class="section">
@@ -357,11 +380,9 @@
                     </div>
                     <div class="section-stuff">
                         <ul>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, fuga!</li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, fuga!</li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, fuga!</li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, fuga!</li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, fuga!</li>
+                            {{#each experiences}}
+                            <li>{{this}}</li>
+                            {{/each}}
                         </ul>
                     </div>
                 </div>
@@ -371,11 +392,9 @@
                     </div>
                     <div class="section-stuff">
                         <ul>
-                            <li>Lorem ipsum dolor sit amet.</li>
-                            <li>Lorem ipsum dolor sit amet.</li>
-                            <li>Lorem ipsum dolor sit amet.</li>
-                            <li>Lorem ipsum dolor sit amet.</li>
-                            <li>Lorem ipsum dolor sit amet.</li>
+                            {{#each education}}
+                            <li>{{this}}</li>
+                            {{/each}}
                         </ul>
                     </div>
                 </div>
@@ -386,11 +405,9 @@
                         </div>
                         <div class="section-stuff">
                             <ul>
-                                <li>Lorem ipsum dolor sit amet.</li>
-                                <li>Lorem ipsum dolor sit amet.</li>
-                                <li>Lorem ipsum dolor sit amet.</li>
-                                <li>Lorem ipsum dolor sit amet.</li>
-                                <li>Lorem ipsum dolor sit amet.</li>
+                                {{#each achievements}}
+                                <li>{{this}}</li>
+                                {{/each}}
                             </ul>
                         </div>
                     </div>
@@ -400,11 +417,9 @@
                         </div>
                         <div class="section-stuff">
                             <ul>
-                                <li>Lorem ipsum dolor sit amet.</li>
-                                <li>Lorem ipsum dolor sit amet.</li>
-                                <li>Lorem ipsum dolor sit amet.</li>
-                                <li>Lorem ipsum dolor sit amet.</li>
-                                <li>Lorem ipsum dolor sit amet.</li>
+                                {{#each skills}}
+                                <li>{{this}}</li>
+                                {{/each}}
                             </ul>
                         </div>
                     </div>

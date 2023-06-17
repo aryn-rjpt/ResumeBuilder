@@ -51,8 +51,8 @@ $(document).ready(function () {
                     break;
                 }
             }
-            let detailsTemplate = Handlebars.compile($("#requested-content").html());
-            $('#details').html(detailsTemplate(requestedPerson));
+            // let detailsTemplate = Handlebars.compile($("#requested-content").html());
+            // $('#details').html(detailsTemplate(requestedPerson));
             $('#download-resume').removeClass("unactive").addClass('active').siblings().removeClass('active').addClass("unactive");
         };
     })
@@ -80,9 +80,37 @@ $(document).ready(function () {
         return false;
     })
 
-    $("#newCandySub").on("click", () => {
+    $("#candidate-form form").on("submit", () => {
         let formData = Array.from(document.querySelectorAll("#candidate-form input")).reduce((acc, input)=> ({...acc, [input.id]:input.value}), {});
-        console.log(formData);
+        
+        // Grouping data of skills, experience, achivements and education
+        let skillArr = [];
+        let experiencesArr = [];
+        let achievementsArr = [];
+        let educationArr = [];
+        for (let record in formData){
+            if (record.slice(0,5)=='skill'){
+                skillArr.push(formData[record]);
+                delete formData[record];
+            }
+            else if (record.slice(0,6)=='experi'){
+                experiencesArr.push(formData[record]);
+                delete formData[record];
+            }
+            else if (record.slice(0,6)=='achiev'){
+                achievementsArr.push(formData[record]);
+                delete formData[record];
+            }
+            else if (record.slice(0,6)=='educat'){
+                educationArr.push(formData[record]);
+                delete formData[record];
+            };
+        }
+        formData['skills'] = skillArr;
+        formData['experiences'] = experiencesArr;
+        formData['achievements'] = achievementsArr;
+        formData['education'] = educationArr;
+
         candidatesData.candidates.push({"id": candidatesData.candidates.length+1, ...formData});
         localStorage.setItem("candidatesData", JSON.stringify(candidatesData))
     })
@@ -93,7 +121,15 @@ $(document).ready(function () {
         let chosenTemplale = this.value;
         let compiledChosenTemplale = Handlebars.compile($("#"+chosenTemplale+"template").html());
         $('#finalResume').html(compiledChosenTemplale(requestedPerson))
+
+        // html2canvas(document.getElementById("finalResume")).then(function(canvas){
+        //     document.getElementById("download-resume").appendChild(canvas);
+        // })
+
     })
+
+
+
 
 
 
