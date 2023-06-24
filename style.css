@@ -8,7 +8,7 @@ body {
     font-family: 'Josefin Sans', sans-serif;
 }
 
-#main-container > h1{
+#top-section>h1 {
     margin-top: 2rem;
 }
 
@@ -19,26 +19,31 @@ li {
 h3 {
     text-align: center;
     margin-top: 1vw;
+    margin-bottom: 2vw;
 }
 
+#top-section,
 #main-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-button{
+
+
+button {
     padding: 0.5rem;
     border-radius: 10px;
 }
 
-button:hover{
+button:hover {
     cursor: pointer;
     background-color: azure;
 }
 
 .sub-container {
     width: 40rem;
+    margin-bottom: 2vw;
 }
 
 #details pre {
@@ -46,7 +51,7 @@ button:hover{
 }
 
 #btns {
-    margin: 1vw;
+    margin: 2vw 33%;
 }
 
 #btns button {
@@ -61,7 +66,7 @@ button:hover{
     display: none;
 }
 
-.my-warning{
+.my-warning {
     display: none;
     color: red;
 }
@@ -70,8 +75,13 @@ button:hover{
     margin: 2vw 0vw;
 }
 
+#newCandySub {
+    margin: auto 48%;
+    font-size: 1.1rem;
+}
 
-.singleVal{
+
+.singleVal {
     display: inline-block;
     margin: 0 0 1rem 1rem;
 }
@@ -80,11 +90,11 @@ input {
     text-align: center;
 }
 
-.multipleVals{
+.multipleVals {
     margin: 0 0 1rem 1rem;
 }
 
-.multipleInput{
+.multipleInput {
     width: 26rem;
     height: 2rem;
     margin: 0.2rem 0.5rem;
@@ -95,7 +105,8 @@ input {
     width: 13rem;
 }
 
-.addBtn, .skillAddBtn{
+.addBtn,
+.skillAddBtn {
     border-radius: 5px;
     background-color: #F44336;
     height: 32px;
@@ -103,7 +114,8 @@ input {
     color: white;
 }
 
-.addBtn:hover, .skillAddBtn:hover{
+.addBtn:hover,
+.skillAddBtn:hover {
     cursor: pointer;
     background-color: #ffdfdd;
     color: #501b1b;
@@ -222,11 +234,11 @@ input {
     color: white;
 }
 
-.temp2-template{
+.temp2-template {
     position: relative;
 }
 
-.temp2-content{
+.temp2-content {
     display: flex;
     width: 100%;
     height: 100%;
@@ -235,33 +247,33 @@ input {
     z-index: -1;
 }
 
-#temp2-right-box{
+#temp2-right-box {
     width: 100%;
     height: 100%;
     background-color: aliceblue;
     padding: 12rem 1rem 1rem 1rem;
 }
 
-#temp2-left-box{
+#temp2-left-box {
     width: 100%;
     height: 100%;
     background-color: rgb(197, 221, 242);
     padding: 8rem 1rem 1rem 1rem;
 }
 
-.temp2-content .section-heading{
+.temp2-content .section-heading {
     font-weight: 800;
     font-size: 1.5rem;
     color: #183141;
     margin: 2rem 0rem 0.5rem 0rem;
 }
 
-.temp2-content .section-stuff{
+.temp2-content .section-stuff {
     color: black;
     margin: 0.5rem 0rem;
 }
 
-.temp2-person-image{
+.temp2-person-image {
     position: absolute;
     width: 100px;
     height: 100px;
@@ -272,7 +284,7 @@ input {
     left: 11%;
 }
 
-.temp2-person-image img{
+.temp2-person-image img {
     width: 90px;
     height: 90px;
     border-radius: 50%;
@@ -281,27 +293,28 @@ input {
 
 /* Resume template 3 */
 
-.temp3-template{
+.temp3-template {
     width: 100%;
 }
 
-.temp3-template .header{
-    background: url("./svg1.svg") no-repeat center center ;
+.temp3-template .header {
+    background: url("./static/svg1.svg") no-repeat center center;
     height: 14%;
     padding: 1rem;
     position: relative;
 }
 
-.temp3-template .header h1, .temp3-content .section-heading{
+.temp3-template .header h1,
+.temp3-content .section-heading {
     color: #075383;
     font-weight: 800;
 }
 
-.temp3-template .header h3{
+.temp3-template .header h3 {
     text-align: left;
 }
 
-.temp3-template .contact-section{
+.temp3-template .contact-section {
     width: max-content;
     text-align: right;
     position: absolute;
@@ -309,33 +322,63 @@ input {
     right: 1rem;
 }
 
-.temp3-content{
+.temp3-content {
     padding: 1rem;
 }
 
-.temp3-content .section{
+.temp3-content .section {
     margin-top: 1.4rem;
 }
 
-.temp3-content .section-heading{
+.temp3-content .section-heading {
     font-size: 1.3rem;
 }
 
-.temp3-content .section-stuff{
-    margin-top: 0.4rem ;
+.temp3-content .section-stuff {
+    margin-top: 0.4rem;
 }
 
-.temp3-content .two-sections{
+.temp3-content .two-sections {
     display: flex;
     justify-content: space-between;
 }
 
-.temp3-content #skills-section{
+.temp3-content #skills-section {
     padding-right: 6rem;
 }
 
-.temp3-template .separator{
+.temp3-template .separator {
     width: 100%;
     border: 3px solid #7a7a7a;
     margin: 1rem 0rem;
+}
+
+
+/* Get PDf button */
+#getPDF {
+    display: none;
+    background-color: red;
+    color: white;
+    margin: 2vw auto;
+    transition: all 500ms;
+}
+
+#getPDF:hover {
+    box-shadow: 0px 3px 35px rgba(0, 0, 0, 0.5);
+}
+
+
+/* To remove metaadata */
+@page {
+    size: auto;
+    margin: 5mm;
+}
+
+
+/* To show background colors in print preview */
+@media print {
+    body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
 }

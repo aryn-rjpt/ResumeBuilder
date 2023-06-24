@@ -1,5 +1,5 @@
 
-import data from './data.json' assert {type: 'json'};
+import data from './static/data.json' assert {type: 'json'};
 
 let candidatesData = JSON.parse(localStorage.getItem("candidatesData"));
 
@@ -24,10 +24,12 @@ $(document).ready(function () {
     let achievementCount = 0;
     let experienceCount = 0;
     let educationCount = 0;
+    let certificateCount = 0;
     let countVals = {
         "experience": 0,
         "achievement": 0,
         "education": 0,
+        "certificate": 0,
     }
     let candyFormTempCompiled = Handlebars.compile($("#candy-form-template").html());
 
@@ -35,9 +37,13 @@ $(document).ready(function () {
     formSubmitBtn.before(candyFormTempCompiled({"capitalized": "Experiences", lowercase: "experience"}));
     formSubmitBtn.before(candyFormTempCompiled({"capitalized": "Achievements", lowercase: "achievement"}));
     formSubmitBtn.before(candyFormTempCompiled({"capitalized": "Education", lowercase: "education"}));
+    formSubmitBtn.before(candyFormTempCompiled({"capitalized": "Certificates", lowercase: "certificate"}));
 
     // Click Event management
     $("#resumeBtn").on("click", () => {
+        $("input[name='templateBtns']").prop("checked", false);
+        $('.resume-template').css("display","none");
+        $('#getPDF').css("display","none");
         let requestedId = $("input[type='radio'][name='chosen-one']:checked").val();
         if (requestedId==undefined){
             $("#noCandyChosen").css("display", "block");
@@ -59,6 +65,8 @@ $(document).ready(function () {
 
     $("#candidateBtn").on("click", () => {
         $('#candidate-form').removeClass("unactive").addClass('active').siblings().removeClass('active').addClass("unactive");
+        $('.resume-template').css("display","none");
+        $('#getPDF').css("display","none");
     })
 
     $("#newSkill").on("click", ()=>{
@@ -88,6 +96,7 @@ $(document).ready(function () {
         let experiencesArr = [];
         let achievementsArr = [];
         let educationArr = [];
+        let certificateArr = [];
         for (let record in formData){
             if (record.slice(0,5)=='skill'){
                 skillArr.push(formData[record]);
@@ -104,15 +113,23 @@ $(document).ready(function () {
             else if (record.slice(0,6)=='educat'){
                 educationArr.push(formData[record]);
                 delete formData[record];
+            }
+            else if (record.slice(0,6)=='certif'){
+                certificateArr.push(formData[record]);
+                delete formData[record];
             };
         }
         formData['skills'] = skillArr;
         formData['experiences'] = experiencesArr;
         formData['achievements'] = achievementsArr;
+        formData['certificates'] = certificateArr;
         formData['education'] = educationArr;
 
+        console.log(formData);
+
         candidatesData.candidates.push({"id": candidatesData.candidates.length+1, ...formData});
-        localStorage.setItem("candidatesData", JSON.stringify(candidatesData))
+        localStorage.setItem("candidatesData", JSON.stringify(candidatesData));
+
     })
 
 
@@ -121,6 +138,18 @@ $(document).ready(function () {
         let chosenTemplale = this.value;
         let compiledChosenTemplale = Handlebars.compile($("#"+chosenTemplale+"template").html());
         $('#finalResume').html(compiledChosenTemplale(requestedPerson))
+        $('#getPDF').css('display','block');
+
+    })
+
+    $("#getPDF").on('click', function getPDF() {
+        $('#top-section').css("display", "none");
+        $('#download-resume').css("display", "none");
+        $('#getPDF').css("display", "none");
+        window.print();
+        $('#top-section').css("display", "flex");
+        $('#download-resume').css("display", "block");
+        $('#getPDF').css("display", "block");        
 
     })
 

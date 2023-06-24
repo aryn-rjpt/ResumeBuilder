@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Builder</title>
-    <link rel="icon" type="image/x-icon" href="./favicon.png">
+    <link rel="icon" type="image/x-icon" href="./static/favicon.png">
 
     <!-- My style sheet -->
     <link rel="stylesheet" href="style.css" class="css">
@@ -29,22 +29,23 @@
 
 <body>
     <div id="main-container">
-        <h1>Resume Builder</h1>
-        <div class="sub-container">
-            <h3>Choose a candidate: </h3>
-            <div class="candidates">
-                <ul id="candidates-list">
-                    <!-- To be fulfilled using handlebars -->
-                </ul>
-                <div class="my-warning" id="noCandyChosen">Please choose a candidate.</div>
-            </div>
+        <div id="top-section">
+            <h1>Resume Builder</h1>
+            <div class="sub-container">
+                <h3>Choose a candidate: </h3>
+                <div class="candidates">
+                    <ul id="candidates-list">
+                        <!-- To be fulfilled using handlebars -->
+                    </ul>
+                    <div class="my-warning" id="noCandyChosen">Please choose a candidate.</div>
+                </div>
 
-            <div id="btns">
-                <button id="resumeBtn">Get Resume</button>
-                <button id="candidateBtn">Add Candidate</button>
+                <div id="btns">
+                    <button id="resumeBtn">Get Resume</button>
+                    <button id="candidateBtn">Add Candidate</button>
+                </div>
             </div>
         </div>
-
 
         <div class="sub-container">
 
@@ -68,10 +69,12 @@
                         </li>
                     </ul>
                 </div>
-                <div class="resume-template" id="finalResume">
-                    <!-- To be fulfilled using handlebars -->
-                </div>
             </div>
+
+            <div class="resume-template" id="finalResume">
+                <!-- To be fulfilled using handlebars -->
+            </div>
+            <button id="getPDF">Download PDF</button>
 
 
             <div id="candidate-form" class="candidate-form unactive" class="unactive">
@@ -115,7 +118,7 @@
                     </div>
                     <div class="singleVal">
                         <label for="objective">Objective</label>
-                        <input id="objective" type="text" name="objective"  style="width: 23rem; height: 4rem;">
+                        <input id="objective" type="text" name="objective" style="width: 23rem; height: 4rem;">
                     </div>
                     <div class="multipleVals" id="skills">
                         <label for="skill0">Skills:</label>
@@ -133,8 +136,6 @@
 
         </div>
     </div>
-
-
 
     <!-- candidates-list template -->
     <script id="candidates-list-template" type="text/x-handlebars-template">
@@ -237,7 +238,7 @@
                     <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" class="shape-fill"></path>
                 </svg>
                 <div class="temp2-person-image">
-                    <img src="./person.jpg" alt="">
+                    <img src="./static/person.jpg" alt="">
 
                 </div>
                 <h1>{{name}}</h1>
@@ -314,10 +315,9 @@
                         </div>
                         <div class="section-stuff">
                             <ul>
-                                <li>Certification 1</li>
-                                <li>Certification 2</li>
-                                <li>Certification 3</li>
-                                <li>Certification 4</li>
+                                {{#each certificates}}
+                                <li>{{this}}</li>
+                                {{/each}}
                             </ul>
                         </div>
                     </div>
