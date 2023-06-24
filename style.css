@@ -30,7 +30,6 @@ h3 {
 }
 
 
-
 button {
     padding: 0.5rem;
     border-radius: 10px;
@@ -71,8 +70,10 @@ button:hover {
     color: red;
 }
 
-.candidate-form h3 {
-    margin: 2vw 0vw;
+/* Candidate form section */
+
+#candidate-form form .upper-form{
+    display: flex;
 }
 
 #newCandySub {
@@ -171,6 +172,7 @@ input {
 .right-box .template-designation {
     padding-left: 1rem;
     font-size: 1.5rem;
+    font-style: italic;
 }
 
 .right-box p,
@@ -195,9 +197,6 @@ input {
 /* Resume Template 2 */
 .custom-shape-divider-top-1686457299 {
     position: relative;
-    /* top: 0;
-    left: 0;
-    line-height: 0; */
     width: 100%;
     overflow: hidden;
 }
@@ -351,6 +350,10 @@ input {
     width: 100%;
     border: 3px solid #7a7a7a;
     margin: 1rem 0rem;
+}
+
+.temp3-template #sep2{
+    margin-top: 13rem;
 }
 
 
