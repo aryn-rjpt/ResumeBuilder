@@ -1,0 +1,20 @@
+#top-section>h1{
+    font-size: 10vw;
+}
+
+h3{
+    font-size: 2rem;
+    margin: 4vw 0vw;
+}
+
+li{
+    font-size: 2.5vw;
+}
+
+button{
+    font-size: 1.5rem;
+}
+
+#btns{
+    margin: 2vw 16vw;
+}
