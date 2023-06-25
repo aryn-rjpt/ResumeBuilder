@@ -1,3 +1,13 @@
+body {
+    width: 125vw;
+}
+
+@media screen and (max-width: 400px) {
+    body {
+        width: 152vw;
+    }
+}
+
 #top-section>h1 {
     font-size: 10vw;
 }
@@ -180,15 +190,16 @@ button {
     margin-top: 1vw;
 }
 
-.temp3-template .section-heading{
+.temp3-template .section-heading {
     font-size: 0.8rem;
 }
 
-.temp3-template #obj-heading{
+.temp3-template #obj-heading {
     margin-top: 4rem;
 }
 
-.temp3-template .section-stuff, .temp3-template .section-stuff ul li{
+.temp3-template .section-stuff,
+.temp3-template .section-stuff ul li {
     font-size: 0.7rem;
 }
 
@@ -201,6 +212,6 @@ button {
     padding-right: 3rem;
 }
 
-.temp3-template #sep2{
+.temp3-template #sep2 {
     margin-top: 1rem;
 }
