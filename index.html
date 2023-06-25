@@ -28,13 +28,14 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
+
 </head>
 
 <body>
     <div id="main-container">
         <div id="top-section">
-            <h1>Resume Builder</h1>
-            <div class="sub-container">
+            <h1 class="scale-in-top">Resume Builder</h1>
+            <div class="sub-container fade-in">
                 <h3>Choose a candidate: </h3>
                 <div class="candidates">
                     <ul id="candidates-list">
@@ -53,7 +54,7 @@
         <div class="sub-container">
 
 
-            <div id="download-resume" class="unactive">
+            <div id="download-resume" class="unactive fade-in">
 
                 <h3>Choose a template</h3>
                 <div class="resume">
@@ -74,13 +75,13 @@
                 </div>
             </div>
 
-            <div class="resume-template" id="finalResume">
+            <div class="resume-template fade-in" id="finalResume">
                 <!-- To be fulfilled using handlebars -->
             </div>
             <button id="getPDF">Download PDF</button>
 
 
-            <div id="candidate-form" class="candidate-form unactive" class="unactive">
+            <div id="candidate-form" class="candidate-form unactive fade-in">
                 <h3>New Candidate Registration</h3>
                 <form>
                     <div class="upper-form">
@@ -259,6 +260,14 @@
             </div>
             <div class="temp2-content">
                 <div id="temp2-left-box">
+                    <div class="section">
+                        <div class="section-heading">
+                            Objective
+                        </div>
+                        <div class="section-stuff">
+                            {{objective}}
+                        </div>
+                    </div>
                     <div class="section">
                         <div class="section-heading">
                             Work Experience
