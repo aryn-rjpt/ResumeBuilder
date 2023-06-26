@@ -204,11 +204,24 @@ input {
 }
 
 
+#download-resume{
+    margin-bottom: 6rem;
+}
+
 
 .resume ul {
     display: flex;
     justify-content: space-around;
     margin-top: 1rem;
+}
+
+.resume ul li label img{
+    display: block;
+    margin-top: 1rem;
+}
+
+.prev-img{
+    width: 100px;
 }
 
 /* General Resume Template */

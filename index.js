@@ -146,10 +146,12 @@ $(document).ready(function () {
         $('#top-section').css("display", "none");
         $('#download-resume').css("display", "none");
         $('#getPDF').css("display", "none");
+        $('.logo').css("display", "none");
         window.print();
         $('#top-section').css("display", "flex");
         $('#download-resume').css("display", "block");
         $('#getPDF').css("display", "block");        
+        $('.logo').css("display", "block");
 
     })
 
